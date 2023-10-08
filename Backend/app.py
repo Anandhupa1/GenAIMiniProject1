@@ -1,6 +1,7 @@
 import os
 import openai
 import qdrant_client
+from flask_cors import CORS
 from flask import Flask,request,jsonify;
 from langchain.vectorstores import Qdrant;
 from langchain.chains.question_answering import load_qa_chain
@@ -27,6 +28,7 @@ vector_store = Qdrant(
 
 
 app = Flask(__name__)
+CORS(app)
 @app.route('/')
 def home():
     return 'Home page!'
