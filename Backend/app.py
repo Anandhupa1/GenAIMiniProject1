@@ -28,7 +28,8 @@ vector_store = Qdrant(
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "https://bhudha-chatapp-ifh0q65d9-anandhupa1.vercel.app/"}})
+
 @app.route('/')
 def home():
     return 'Home page!'
